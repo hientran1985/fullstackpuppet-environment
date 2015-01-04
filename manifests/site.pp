@@ -14,8 +14,9 @@ filebucket { main: server => 'puppet.corp.guest' }
 
 # Set global defaults - including backing up all files to the main
 # filebucket and adds a global path
-File { backup => main }
-Exec { path => "/usr/bin:/usr/sbin/:/bin:/sbin" }
+File { backup           => main }
+Exec { path             => "/usr/bin:/usr/sbin/:/bin:/sbin" }
+Package { allow_virtual => true }
 
 node default {
   include ntp
